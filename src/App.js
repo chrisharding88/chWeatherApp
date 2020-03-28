@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import WeatherPage from './WeatherPage/Weather';
+import WeatherPage from './WeatherPage/weather';
 
-function App() {
-	return (
-		<div className="App">
-			<WeatherPage />
-		</div>
-	);
+class App extends Component {
+	render() {
+		return <WeatherPage />;
+	}
 }
 
 export default App;
