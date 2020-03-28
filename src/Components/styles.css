@@ -1,22 +1,78 @@
 h2#currentTime {
-	margin-left: 500px;
+	margin-left: 65%;
+	margin-top: 5px;
+	display: inline-flex;
+	flex: none;
+}
+
+#displayTime {
+	margin-top: 2px;
+	margin-left: 4px;
+}
+.navbar-expand-lg {
+	background-color: black;
+	color: #f84107;
+	height: 20%;
+	width: 105%;
 }
 
 .box {
-	border: 2px solid black;
+	border: 2px solid whitesmoke;
 	padding: 10px;
 	width: 500px;
-	height: 600px;
+	height: 50%;
 	margin: 0 auto;
 	background-color: rgba(0, 0, 0, 0.2);
+	background-color: black;
+	color: #f84107;
+	clear: both;
+	margin-top: 27px;
+}
+
+#displayTime {
+	font-size: 30px;
+}
+
+label {
+	font-weight: bold;
+	font-size: 30px;
+	color: black;
+}
+
+.form-name {
+	text-align: center;
+}
+
+.form-control {
+	width: 30%;
+}
+
+.btn {
+	padding: 6px;
+	margin-left: 4px;
+	margin-bottom: 5px;
+}
+
+.form-control,
+button {
+	display: inline-flex;
+	flex: none;
 }
 
 span {
-	font-size: 35px;
+	font-size: 25px;
 }
 .city {
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid #f84107;
 	padding: 10px;
+}
+
+#cityName,
+.humidity,
+.wind,
+.sunrise,
+.sunset {
+	text-align: center;
 }
 
 .icons {
@@ -42,6 +98,7 @@ div.temperature {
 #mainTemp {
 	font-weight: bold;
 	font-size: 60px;
+	margin-left: 30px;
 }
 
 #lowTemp {

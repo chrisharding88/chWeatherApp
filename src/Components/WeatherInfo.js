@@ -34,10 +34,18 @@ export const WeatherInfo = (props) => {
 					<h1>Humidity</h1>
 					<span>{props.humidity}%</span>
 				</div>
-				<h1>Sunrise</h1>
-				<span>{props.sunrise}</span>
-				<h1>Sunset</h1>
-				<span>{props.sunset}</span>
+				<div className="wind">
+					<h1>Wind</h1>
+					<span>{props.wind} MPH</span>
+				</div>
+				<div className="sunrise">
+					<h1>Sunrise</h1>
+					<span>{props.sunrise}</span>
+				</div>
+				<div className="sunset">
+					<h1>Sunset</h1>
+					<span>{props.sunset}</span>
+				</div>
 			</div>
 		</div>
 	);

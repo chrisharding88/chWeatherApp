@@ -16,8 +16,7 @@ class WeatherPage extends Component {
 			weatherIcon: '',
 			weatherDescription: '',
 			humidity: '',
-			longitude: '',
-			latitude: '',
+			wind: '',
 			highTemp: '',
 			lowTemp: '',
 			time: Moment().format('LTS'),
@@ -56,6 +55,12 @@ class WeatherPage extends Component {
 		this.getWeather(this.state.city);
 	}
 
+	// Converts Meters Per Second to Miles Per Hour, plus rounds the number
+	windSpeed(metersPerSecond) {
+		const milesPerHour = Math.floor(metersPerSecond * 2.236936);
+		return milesPerHour;
+	}
+
 	getWeather = (city) => {
 		API.citySearch(city)
 			.then((res) => {
@@ -67,6 +72,7 @@ class WeatherPage extends Component {
 					sunrise: this.getTime(response.sys.sunrise),
 					sunset: this.getTime(response.sys.sunset),
 					weatherIcon: response.weather[0].icon,
+					wind: this.windSpeed(response.wind.speed),
 					temperature: this.calFahrenheit(response.main.temp),
 					highTemp: this.calFahrenheit(response.main.temp_max),
 					lowTemp: this.calFahrenheit(response.main.temp_min),
@@ -76,18 +82,6 @@ class WeatherPage extends Component {
 			})
 			.catch((err) => console.log(err));
 	};
-
-	/*map = (lon, lat) => {
-		API.map(lon, lat)
-			.then(() => {
-				const response = res.data;
-				this.setState({
-					longitude: response.coord.lon,
-					latitude: response.coord.lat
-				});
-			})
-			.catch((err) => console.log(err));
-	};*/
 
 	handleInputChange = (event) => {
 		const { name, value } = event.target;
@@ -114,10 +108,11 @@ class WeatherPage extends Component {
 			<div className="container">
 				<Nav time={this.state.time} />
 
-				<WeatherForm value={this.state.city} onChange={this.handleInputChange} />
-				<button className="btn btn-primary" onClick={this.handleFormSubmit}>
-					Get Weather
-				</button>
+				<WeatherForm
+					value={this.state.city}
+					onChange={this.handleInputChange}
+					onClick={this.handleFormSubmit}
+				/>
 
 				<WeatherInfo
 					name={this.state.name}
@@ -128,6 +123,7 @@ class WeatherPage extends Component {
 					temperature={this.state.temperature}
 					highTemp={this.state.highTemp}
 					lowTemp={this.state.lowTemp}
+					wind={this.state.wind}
 					weather={this.state.weatherDescription}
 					humidity={this.state.humidity}
 				/>
