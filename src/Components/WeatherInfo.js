@@ -19,7 +19,7 @@ export const WeatherInfo = (props) => {
 						)}
 					</span>
 					<div>
-						<span>{props.weather}</span>
+						<span id="description">{props.weather}</span>
 					</div>
 				</div>
 

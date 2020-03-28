@@ -3,6 +3,7 @@ h2#currentTime {
 	margin-top: 5px;
 	display: inline-flex;
 	flex: none;
+	font-size: 30px;
 }
 
 #displayTime {
@@ -78,6 +79,14 @@ span {
 .icons {
 	width: 100px;
 	height: 100px;
+}
+
+.weather {
+	margin-left: 30px;
+}
+
+#description {
+	margin-left: 4px;
 }
 
 .left {
